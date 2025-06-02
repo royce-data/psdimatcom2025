@@ -1,0 +1,30 @@
+$color-primary: rgb(112,112,113);
+$color-link: rgb(0,161,154);
+$color-link-hover: rgb(255,209,0);
+// $color-text: darken($color-primary, 50%);
+
+@import "../themes/academic-workshop/sass/main.scss";
+
+a {
+    color: $color-link;
+}
+
+a:hover {
+    color: $color-link-hover;
+}
+
+.royce {
+    color: $color-link;
+    border-color: $color-link;
+    font-weight: 600;
+}
+
+.royce:hover {
+    color: $color-link-hover;
+    background-color: rgba($color-link, 1);
+}
+
+.fade {
+    background: rgba($color-light, 80%);
+    box-shadow: 0 0 1rem 1rem rgba($color-light, 80%);
+}
