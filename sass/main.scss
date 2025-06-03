@@ -1,6 +1,6 @@
-$color-primary: rgb(112,112,113);
-$color-link: rgb(0,161,154);
-$color-link-hover: rgb(255,209,0);
+$color-primary: rgb(112, 112, 113);
+$color-link: rgb(0, 161, 154);
+$color-link-hover: rgb(255, 209, 0);
 // $color-text: darken($color-primary, 50%);
 
 @import "../themes/academic-workshop/sass/main.scss";
@@ -27,4 +27,9 @@ a:hover {
 .fade {
     background: rgba($color-light, 80%);
     box-shadow: 0 0 1rem 1rem rgba($color-light, 80%);
+}
+
+.footer .last-updated {
+    font-size: smaller;
+    text-align: center;
 }

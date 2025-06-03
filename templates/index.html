@@ -59,6 +59,7 @@
     {% if config.extra.footer_text %}
         <footer class="footer">
             {{ config.extra.footer_text | markdown | safe }}
+            {% if config.extra.footer_time %}<p class="last-updated">Updated: {{ now(utc=true) | date(format="%c") }}</p>{% endif %}
         </footer>
     {% endif %}
 {% endblock %}
