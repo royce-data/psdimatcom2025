@@ -1,11 +1,27 @@
-{% if class_royce_small %}
-<a class="btn mx-1 royce" href="{{ get_url(path = url) | safe }}">
-    {{- name -}}
-</a>
+{% if external %}
+{% set urlref = url %}
 {% else %}
+{% set urlref = get_url(path = url) | safe  %}
+{% endif %}
+
+{% if class_royce_small %}
+    {% if compl %}
+    {% set class = "btn mx-1 royce-rev" %}
+    {% else %}
+    {% set class = "btn mx-1 royce" %}
+    {% endif %}
+{% elif class_royce %}
+    {% if compl %}
+    {% set class = "btn mt-3 royce-rev" %}
+    {% else %}
+    {% set class = "btn mt-3 royce" %}
+    {% endif %}
+{% else %}
+{% set class = "btn mt-3" %}
+{% endif %}
+
 <div class="text-center">
-    <a class={% if class_royce %}"btn mt-3 royce"{% else %}"btn mt-3"{% endif %} href="{{ get_url(path = url) | safe }}">
+    <a class="{{ class }}" href="{{ urlref }}">
         {{- name -}}
     </a>
 </div>
-{% endif %}

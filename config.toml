@@ -7,11 +7,15 @@ default_language = "en"
 
 theme = "academic-workshop"
 
+generate_sitemap = false
+
+generate_robots_txt = false
+
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
 # Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
+build_search_index = false
 
 [markdown]
 # Whether to do syntax highlighting
@@ -27,5 +31,5 @@ banner = {extension = "jpg", size = "cover", fade = true, no-repeat = true} # th
 buttons = [{name = "Home", url = "/", class_royce = true}, {name = "PSDI", url = "https://www.psdi.ac.uk/", class_royce = true}, {name="Royce", url="https://www.royce.ac.uk", class_royce = true}, {name = "Programme", url = "/programme", class_royce = true}, {name = "Format", url = "/format", class_royce = true}, {name = "Useful information", url = "/info", class_royce = true}] # creates a list of buttons displayed in order, with links to the URLs
 image = {resize = 400, ext = '.jpg'} # this sets the desired size for image resizing, as well as the default extension
 list_page_limit = 10 # this sets the default number of items which show up in one page in a list
-header_pages = [{name = "Home", url = ""},{name = "Programme", url = "programme/"},{name = "Abstracts", url = "programme/abstracts"},{name = "Useful information", url = ""}] # this sets the pages which show up in the navigation menu which gets displayed on mobile devices
+header_pages = [{name = "Home", url = ""},{name = "Programme", url = "/programme"},{name = "Day 1 Abstracts", url = "/2025-06-16_abstracts"},{name = "Day 2 Abstracts", url = "/2025-06-17_abstracts"},{name = "Format", url = "/format"}, {name = "Further information", url = "2025/info"}] # this sets the pages which show up in the navigation menu which gets displayed on mobile devices
 button_shortcuts = [{}] # this configuration makes it possible to add a button to a page or section in a less-verbose way, for example by writing video = "/url/to/video" instead of buttons = [{name = "Video", url = "/url/to/video"}]
