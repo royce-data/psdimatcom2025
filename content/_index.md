@@ -6,7 +6,7 @@ title = "PSDI Materials Community Workshop 2025"
 
 {{ new_block() }}
 
-# [Schedule](/programme)
+# [Schedule](@/programme/_index.md)
 
 
 ## Day 1: Monday, 16 June
