@@ -1,5 +1,11 @@
+{% if class_royce_small %}
+<a class="btn mx-1 royce" href="{{ get_url(path = url) | safe }}">
+    {{- name -}}
+</a>
+{% else %}
 <div class="text-center">
     <a class={% if class_royce %}"btn mt-3 royce"{% else %}"btn mt-3"{% endif %} href="{{ get_url(path = url) | safe }}">
         {{- name -}}
     </a>
 </div>
+{% endif %}

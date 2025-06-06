@@ -19,6 +19,10 @@ a:hover {
     font-weight: 600;
 }
 
+.btn.royce {
+    background-color: rgba(lighten($color-link, 2%), 0.1);
+}
+
 .royce:hover {
     color: $color-link-hover;
     background-color: rgba($color-link, 1);
