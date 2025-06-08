@@ -16,7 +16,7 @@ template = "page.html"
 | Time  | Title  | Speaker  |
 |---|---|---|
 | **11:00 - 11:10** |**Welcome & housekeeping**  | Hosts  |
-|[11:10](https://time.is/1110_16_June_2025_in_BST) - 11:25|*Introduction to PSDI*   | Vasily Bunakov   |
+|[11:10](https://time.is/1110_16_June_2025_in_BST) - 11:25|*Introduction to PSDI*   | Wenkai Zhang   |
 | [11:25](https://time.is/1125_16_June_2025_in_BST) - 11:50 |*PSDI Metadata and Cross-search*   | Aileen Day  |
 | [11:50](https://time.is/1150_16_June_2025_in_BST) - 12:20  |*Materials knowledge and data representation with a European ontology ecosystem*  | Gerhard Goldbeck |
 | [12:20](https://time.is/1220_16_June_2025_in_BST) - 12:45  |*CDIF-4-XAS a semantic framework to facilitate XAS data interoperability*|Abraham Nieva de la Hidalga |  
