@@ -13,7 +13,7 @@ The official address of the Royce Hub Building, University of Manchester, is the
 
 </div>
 
-![](/images/Royce_Hub_Travel_Info.png)
+<img src="images/Royce_Hub_Travel_Info.png">
 
 
 
