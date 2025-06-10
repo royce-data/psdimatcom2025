@@ -1,0 +1,23 @@
+{% macro itemized_part(page) %}
+<div class="d-flex flex-column r:flex-row items-center r:items-start mb-4">
+    <div class="mr-auto px-3">
+        {%if page.extra.author is iterable %}
+            {% for auth in page.extra.author %}
+                {% if page.extra.author_url is iterable %}
+                    {% set auth_url = page.extra.author_url[loop.index0] %}
+                        <a href="{{ auth_url | safe }}">{{ auth }}</a>
+                {% else %}
+                    <a href="">{{ auth }}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <a href="{{ page.extra.author_url | safe }}">
+            {{ list::auths(authors = page.extra.author) }}{% if page.extra.position %} &middot; {{page.extra.position}}{% endif %}</a>{% if details and page.extra.orcid %}{{ list::orcid_id(orcid=page.extra.orcid) }}{% endif %}
+            {% if page.extra.linkedin %}<a href="{{ page.extra.linkedin | safe }}">{{ page.extra.linkedin | safe }}</a>{% endif %}
+            {% if page.extra.research_interests %}
+                <h6 class="h6 mt-0 mb-1">Research interests: </h6>
+            {% endif %}
+            {{ list::institutions(institution = page.extra.institution) }}
+    </div>
+</div>
+{% endmacro %}
