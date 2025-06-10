@@ -14,4 +14,4 @@ button_shortcuts = [{name = "Abstracts Day 1", url = "2025-06-16"}]
 
 # Abstracts
 
-{{ list(section_name = "2025-06-17_abstracts") }}
+{{ list(section_name = "2025-06-17_abstracts", details=false, profile=false) }}

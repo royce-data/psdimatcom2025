@@ -1,6 +1,7 @@
 $color-primary: rgb(112, 112, 113);
 $color-link: rgb(0, 161, 154);
 $color-link-hover: rgb(255, 209, 0);
+$responsive-buttons: 568px;
 // $color-text: darken($color-primary, 50%);
 
 @import "../themes/academic-workshop/sass/main.scss";
@@ -11,6 +12,25 @@ a {
 
 a:hover {
     color: $color-link-hover;
+}
+
+.orcid {
+    vertical-align: top;
+    display: inline;
+    max-width: 24px;
+    min-width: 16px;
+}
+
+.orcid.fade {
+    @extend .orcid;
+
+    background: none;
+    box-shadow: none;
+
+    &:hover {
+        // background: rgba($color-link-hover, 80%);
+        box-shadow: 0 0 0.4rem 0.4rem rgba($color-link-hover, 60%);
+    }
 }
 
 .royce {
@@ -26,6 +46,7 @@ a:hover {
 
 .btn.royce {
     background-color: rgba(lighten($color-link, 2%), 0.1);
+    font-weight: 600;
 
     &-rev {
         color: $color-primary;
@@ -55,4 +76,37 @@ a:hover {
 .footer .last-updated {
     font-size: smaller;
     text-align: center;
+}
+
+h6 {
+    font-weight: 500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    &.royce {
+        color: $color-link;
+        border-color: none;
+
+        &:hover {
+            color: $color-link;
+            background-color: transparent;
+            border-color: transparent;
+        }
+    }
+}
+
+@media (max-width: $responsive-buttons) {
+    .btn.royce {
+        font-size: 0.9rem;
+        padding: .325rem .7rem
+    }
+
+    .d-flex {
+        flex-wrap: wrap;
+    }
 }

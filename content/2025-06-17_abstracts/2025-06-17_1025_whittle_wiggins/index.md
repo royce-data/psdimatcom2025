@@ -2,10 +2,10 @@
 title = "TopoStats: an open-source Python toolkit for analysis of AFM images"
 template = "item.html"
 [extra]
-author = "Sylvia Whittle & Laura Wiggins"
+author = ["Sylvia Whittle", "Laura Wiggins"]
 institution = "The University of Sheffield"
 author_url = "https://pyne-lab.uk/"
-time = "11:10 BST"
+time = "10:25 BST"
 highlight = false
 +++
 

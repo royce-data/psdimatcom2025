@@ -3,7 +3,7 @@ title = "CDIF-4-XAS a semantic framework to facilitate XAS data interoperability
 template = "item.html"
 [extra]
 author = "Abraham Nieva de la Hidalga"
-institution = "Cardiff University; UK Catalysis Hub; Physical Sciences Data Infrastructure"
+institution = "Cardiff University, UK Catalysis Hub, Physical Sciences Data Infrastructure"
 author_url = ""
 time = "12:20 BST"
 highlight = false
