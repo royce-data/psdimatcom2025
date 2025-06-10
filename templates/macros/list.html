@@ -23,9 +23,13 @@ Zola or Tera changes make it possible without horrible workarounds.
 {% set leading_html = split_content | slice(end = 1) | first %}
 {{ leading_html | safe }}
 {% for section_with_trailing_html in split_content | slice(start = 1) %}
+    {% set details = section_with_trailing_html is containing('<div academic-workshop-list-participants-end></div>') %}
+    {% set profile = section_with_trailing_html is containing('<div academic-workshop-list-participants-end></div>') %}
     {% set highlight = section_with_trailing_html is containing('<div academic-workshop-list-end-highlight></div>') %}
     {% if highlight %}
         {% set pattern = '<div academic-workshop-list-end-highlight></div>' %}
+    {% elif details and profile %}
+        {% set pattern = '<div academic-workshop-list-participants-end></div>' %}
     {% else %}
         {% set pattern = '<div academic-workshop-list-end></div>' %}
     {% endif %}
@@ -33,12 +37,12 @@ Zola or Tera changes make it possible without horrible workarounds.
     {% set section_name = split_section_with_trailing_html | first %}
     {% set trailing_html = split_section_with_trailing_html | slice(start = 1) | first %}
     {% set current_section = get_section(path = section_name ~ '/_index.md') %}
-    {{ list::items(pages = current_section.pages, highlight = highlight) }}
+    {{ list::items(pages = current_section.pages, highlight = highlight, details = details, profile = profile) }}
     {{ trailing_html | safe }}
 {% endfor %}
 {% endmacro %}
 
-{% macro items(pages, highlight) %}
+{% macro items(pages, highlight, details, profile) %}
 <div class="d-flex flex-column mt-5">
     {% if highlight %}
         {% set filtered_pages = pages | filter(attribute = 'extra.highlight', value = true) %}
@@ -47,44 +51,82 @@ Zola or Tera changes make it possible without horrible workarounds.
         {% set filtered_pages = pages | slice(end = page_limit) %}
     {% endif %}
     {% for page in filtered_pages %}
-        {{ list::item(page = page, highlight = highlight )}}
+        {% if details and profile %}
+        {{ list::itemized_part(page = page) }}
+        {% else %}
+        {{ list::item(page = page, highlight = highlight) }}
+        {% endif %}
     {% endfor %}
 </div>
 {% endmacro %}
 
-{% macro item(page, highlight) %}
+{% macro item(page, highlight, details=false) %}
 <div class="d-flex flex-column r:flex-row items-center r:items-start mb-4">
     <a class="d-contents" href="{{ get_url(path = page.path) | safe }}">
-        <img class="rounded-circle mb-3" alt="{{ page.extra.author }}" {{ image::resize(url = page.extra.image | default(value = false), name = page.extra.author, directory = page.colocated_path) }}>
+        <img class="rounded-circle mb-3" alt="{{ list::auths(authors = page.extra.author) }}" {{ image::resize(url = page.extra.image | default(value = false), name = "{{ list::auths(authors = page.extra.author) }}", directory = page.colocated_path) }}>
     </a>
     <div class="mr-auto px-3">
         <a href="{{ get_url(path = page.path) | safe }}">
             <h2 class="mb-1">{{ page.title }}</h2>
         </a>
         <a href="{{ page.extra.author_url | safe }}">
-            <h3 class="h5 mb-2">{{ page.extra.author }} &middot; {{ page.extra.institution }}</h3>
-        </a>
-        {% set time = page.extra.time | default(value = false) %}
-        <h4 class="h6 mb-3">{{ page.date | date(format='%Y-%m-%d') }}{% if time %} &middot; {{ time }}{% endif %}</h4>
-        
-        {% if not highlight %}
-            {% set abstract_button = load_data(literal = 'buttons = [{name = "Abstract", url = "' ~ get_url(path = page.path) ~ '"}]', format = 'toml') %}
-            {% set buttons = abstract_button.buttons | concat(with = page.extra.buttons | default(value = [])) %}
-        {% else %}
-            {% set buttons = page.extra.buttons | default(value = []) %}
-        {% endif %}
-        {% for button_shortcut in config.extra.button_shortcuts | default(value = []) %}
-            {% if page.extra[button_shortcut.variable] %}
-                {% set shortcut_button = load_data(literal = 'buttons = [{name = "' ~ button_shortcut.name ~ '", url = "' ~ page.extra[button_shortcut.variable] ~ '"}]', format = 'toml') %}
-                {% set_global buttons = buttons | concat(with = shortcut_button.buttons) %}
+            <h3 class="h5 mb-1">{{ list::auths(authors = page.extra.author) }}{% if page.extra.position %} &middot; {{page.extra.position}}{% endif %}</a>{% if details and page.extra.orcid %}{{ list::orcid_id(orcid=page.extra.orcid) }}{% endif %}</h3>
+            <h6 class="h6 mt-0 mb-1">{% if details and page.extra.linkedin %}<a href="{{ page.extra.linkedin | safe }}">{{ page.extra.linkedin | safe }}</a>{% endif %}</h6>
+            {% if details and page.extra.profile %}
+                {% if page.extra.research_interests %}
+                    <h6 class="h6 mt-0 mb-1">Research interests: {{  list::auths(authors=page.extra.research_interests) }} </h6>
+                {% endif %}
             {% endif %}
-        {% endfor %}
-        {% for button in buttons %}
-            <a class="btn mb-3 mr-2 royce" href="{{ button.url | safe }}">{{ button.name }}</a>
-        {% endfor %}
-        {% if highlight %}
-            {{ page.content | safe }}
-        {% endif %}
+            <h3 class="h5 mb-2 royce">{{ list::institutions(institution = page.extra.institution) }}</h3>
+            {% if details and page.extra.profile %}
+            {%if page.extra.outgoing_links %}
+            <h3 class="h6 mb-2 royce">
+            {% for link in page.extra.outgoing_links %}
+                {% if link is iterable and link | length == 2 %}
+                    <a href="{{ link[1] }}">{{ link[0] }}</a>
+                {% elif link is string %}
+                    <a href="{{ link }}">{{ link }}</a>
+                {% endif %}
+                {% if not loop.last %}
+                &middot;
+                {% endif %}
+            {% endfor %}
+            </h3>
+            {% endif %}
+            {% endif %}
+            {% set time = page.extra.time | default(value = false) %}
+            <h4 class="h6 mb-3">{{ page.date | date(format='%Y-%m-%d') }}{% if time %} &middot; {{ time }}{% endif %}</h4>
+            
+            {% if not highlight%}
+                {% set abstract_button = load_data(literal = 'buttons = [{name = "Abstract", url = "' ~ get_url(path = page.path) ~ '"}]', format = 'toml') %}
+                {% set buttons = abstract_button.buttons | concat(with = page.extra.buttons | default(value = [])) %}
+            {% else %}
+                {% set buttons = page.extra.buttons | default(value = []) %}
+            {% endif %}
+            {% for button_shortcut in config.extra.button_shortcuts | default(value = []) %}
+                {% if page.extra[button_shortcut.variable] %}
+                    {% set shortcut_button = load_data(literal = 'buttons = [{name = "' ~ button_shortcut.name ~ '", url = "' ~ page.extra[button_shortcut.variable] ~ '"}]', format = 'toml') %}
+                    {% set_global buttons = buttons | concat(with = shortcut_button.buttons) %}
+                {% endif %}
+            {% endfor %}
+            {% for button in buttons %}
+                <a class="btn mb-3 mr-2 royce" href="{{ button.url | safe }}">{{ button.name }}</a>
+            {% endfor %}
+            {% if highlight %}
+                {{ page.content | safe }}
+            {% endif %}
     </div>
 </div>
+{% endmacro %}
+
+{% macro orcid_id(orcid)%}
+<a href="{{ page.extra.orcid | safe }}"> <img class="orcid fade" src="/icons/ORCID-iD_icon_unauth_vector.svg" alt=""></a>
+{% endmacro %}
+
+{% macro auths(authors)%}
+{% if authors is iterable%}{% for auth in authors%}{% if loop.last %}{{ auth }}{% else %}{{auth}}, {% endif %}{% endfor %}{% else %}{{ authors }}{% endif %}
+{% endmacro %}
+
+{% macro institutions(institution)%}
+{% if institution is iterable %}{% for ins in institution %}{% if loop.last %}{{ ins }}{% else %}{{ ins }} &middot; {% endif %}{% endfor %}{% else %}{{ institution }}{% endif %}
 {% endmacro %}
