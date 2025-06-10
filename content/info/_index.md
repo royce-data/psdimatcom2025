@@ -13,7 +13,7 @@ The official address of the Royce Hub Building, University of Manchester, is the
 
 </div>
 
-<img src="images/Royce_Hub_Travel_Info.png">
+![](Royce_Hub_Travel_Info.png)
 
 
 
@@ -25,7 +25,7 @@ There is parking available next to the venue, on Booth Street East. The Aquatics
 
 # Dinner arrangements
 
-The opt-in dinner will be at Nell's Pizz at Common in Manchester's Northern Quarter at 19:00. The space is booked until 22:00 under the name of the host.
+The opt-in dinner will be at Nell's Pizza at Common in Manchester's Northern Quarter at 19:00. The space is booked until 22:00 under the name of the host.
 <div class="mb-1" style="display: flex;flex-wrap: wrap;flex-direction: row;align-content: center;align-items: center;justify-content: space-evenly;">
  {{ button(name="What 3 words", url="https://w3w.co/orbit.belts.sunk", class_royce_small=true, compl=true external=true) }} {{ button(name="OpenStreetMap", url="https://www.openstreetmap.org/way/31894775#map=19/53.484258/-2.235947", class_royce_small=true, compl=true, external=true) }}
 </div>

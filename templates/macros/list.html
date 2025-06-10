@@ -120,7 +120,7 @@ Zola or Tera changes make it possible without horrible workarounds.
 {% endmacro %}
 
 {% macro orcid_id(orcid)%}
-<a href="{{ page.extra.orcid | safe }}"> <img class="orcid fade" src="/icons/ORCID-iD_icon_unauth_vector.svg" alt=""></a>
+<a href="{{ page.extra.orcid | safe }}"> <img class="orcid fade" src="{{ config.base_url }}icons/ORCID-iD_icon_unauth_vector.svg" alt=""></a>
 {% endmacro %}
 
 {% macro auths(authors)%}
