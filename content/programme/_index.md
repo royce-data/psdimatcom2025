@@ -49,5 +49,5 @@ template = "page.html"
 |**11:45- 12:30**|**Lunch**||
 |[12:30]((https://time.is/1230_17_June_2025_in_BST)) - 12:50|*Harnessing Large Language Models to Extract<br>Complex Concentrated Alloy Properties from Scientific<br>Literature for Materials Science and Engineering*| Joshua Berry|
 |[12:50](https://time.is/1250_17_June_2025_in_BST) - 13:10|Quick-fire panel 4: Data-driven applications and machine learning|Session 4 speakers|
-|[13:10](https://time.is/1310_17_June_2025_in_BST) - 13:30|Interactive activity| Hosts |
-|[13:30](https://time.is/1350_17_June_2025_in_BST) - 14:00|Group discussion & Close| All participants|
+|[13:10](https://time.is/1310_17_June_2025_in_BST) - 13:25|PSDI Cross-search demo| Mehmet Giritli |
+|[13:25](https://time.is/1325_17_June_2025_in_BST) - 14:00|Group discussion & Close| All participants|
