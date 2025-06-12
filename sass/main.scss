@@ -18,10 +18,17 @@ a:hover {
     vertical-align: top;
     display: inline;
     max-width: 24px;
-    min-width: 16px;
+    min-width: 13px;
+
+    &-smaller {
+        @extend .orcid;
+        vertical-align: super;
+        display: inline;
+        width: 13px;
+    }
 }
 
-.orcid.fade {
+.fade.orcid {
     @extend .orcid;
 
     background: none;
@@ -30,6 +37,14 @@ a:hover {
     &:hover {
         // background: rgba($color-link-hover, 80%);
         box-shadow: 0 0 0.4rem 0.4rem rgba($color-link-hover, 60%);
+    }
+
+    &-smaller {
+        @extend .orcid-smaller;
+
+        &:hover {
+            box-shadow: 0 0 0.2rem 0.2rem rgba($color-link-hover, 60%);
+        }
     }
 }
 
