@@ -119,8 +119,13 @@ Zola or Tera changes make it possible without horrible workarounds.
 </div>
 {% endmacro %}
 
-{% macro orcid_id(orcid)%}
-<a href="{{ page.extra.orcid | safe }}"> <img class="orcid fade" src="{{ config.base_url }}icons/ORCID-iD_icon_unauth_vector.svg" alt=""></a>
+{% macro orcid_id(orcid, smaller=false)%}
+{% if smaller %}
+{% set class = "orcid-smaller" %}
+{% else %}
+{% set class = "orcid" %}
+{% endif %}
+<a href="{{ orcid | safe }}"> <img class="{{ class }} fade" src="{{ config.base_url }}icons/ORCID-iD_icon_unauth_vector.svg" alt=""></a>
 {% endmacro %}
 
 {% macro auths(authors)%}

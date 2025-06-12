@@ -1,0 +1,6 @@
+{% import "macros/list.html" as list %}
+
+{% set url=url %}
+{% set class_smaller=class_smaller %}
+
+{{ list::orcid_id(orcid=url, smaller=class_smaller) }}
