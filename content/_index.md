@@ -37,8 +37,7 @@ title = "PSDI Materials Community Workshop 2025"
 |[09:00](https://time.is/0900_17_June_2025_in_BST) - [09:10](https://time.is/0910_17_June_2025_in_BST)| Welcome |
 |[09:10](https://time.is/0910_17_June_2025_in_BST) - [10:00](https://time.is/1000_17_June_2025_in_BST)| **Session 3: Workflows tools and reproducibility** |
 |[10:00](https://time.is/1010_17_June_2025_in_BST) - [10:45](https://time.is/1045_17_June_2025_in_BST)| **Session 4: Data-driven applications and machine learning** |
-|[10:45](https://time.is/1045_17_June_2025_in_BST) - [11:00](https://time.is/1100_17_June_2025_in_BST)| Break |
-|[11:00](https://time.is/1100_17_June_2025_in_BST) - [11:45](https://time.is/1145_17_June_2025_in_BST)| **Session 4: Data-driven applications and machine learning (cont.)** |
-|[11:45](https://time.is/1145_17_June_2025_in_BST) - [12:25](https://time.is/1225_17_June_2025_in_BST)| Lunch|
-|[12:25](https://time.is/1225_17_June_2025_in_BST) - [13:10](https://time.is/1310_17_June_2025_in_BST)| **Session 4: Data-driven applications and machine learning (cont.)** |
-|[13:10](https://time.is/1350_17_June_2025_in_BST) - [14:00](https://time.is/1400_17_June_2025_in_BST) | Group sessions & Close |
+|[10:45](https://time.is/1045_17_June_2025_in_BST) - [10:50](https://time.is/1100_17_June_2025_in_BST)| Short Break |
+|[10:50](https://time.is/1050_17_June_2025_in_BST) - [12:20](https://time.is/1220_17_June_2025_in_BST)| **Session 4: Data-driven applications and machine learning (cont.)** |
+|[12:20](https://time.is/1220_17_June_2025_in_BST) - [13:00](https://time.is/1300_17_June_2025_in_BST)| Lunch |
+|[13:00](https://time.is/1350_17_June_2025_in_BST) - [14:00](https://time.is/1400_17_June_2025_in_BST)| Group sessions & Close |

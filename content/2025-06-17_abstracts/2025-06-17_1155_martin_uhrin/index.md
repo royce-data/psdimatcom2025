@@ -5,6 +5,6 @@ template = "item.html"
 author = "Martin Uhrin"
 institution = "Université Grenoble Alpes"
 author_url = ""
-time = "12:45 BST"
+time = "11:55 BST"
 highlight = false
 +++
